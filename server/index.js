@@ -33,5 +33,5 @@ app.use(api);
 // })
 
 // 监听8088端口
-app.listen(8088);
+app.listen(8080);
 console.log('success listen…………');
