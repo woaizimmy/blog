@@ -1,12 +1,14 @@
 <template>
     <div class="page">
       <div class="wrapper">
-        <el-alert
-          title="文章管理请到PC端"
-          type="error"
-          effect="dark"
-          :closable="false">
-        </el-alert>
+        <el-col :xs="24" :sm="0" :md="0" :lg="0" :xl="0">
+          <el-alert
+            title="文章管理请到PC端"
+            type="error"
+            effect="dark"
+            :closable="false">
+          </el-alert>
+        </el-col>
         <div class="content">
           <el-row class="row">
             <el-col :xs="4" :sm="6" :md="6" :lg="6" :xl="6">

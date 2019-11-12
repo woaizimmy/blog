@@ -116,7 +116,7 @@ router.post('/api/admin/updateUser', (req, res) => {
                 let D = Date.now();
                 //api.js的上级的static下
                 // 部署版
-                // let saveImg = path.join(__dirname, '../static/upload/avatar/' + D + '.png');
+                // let saveImg = path.join(__dirname, '../dist/static/upload/avatar/' + D + '.png');
                 // 本地开发版
                 let saveImg = path.join(__dirname, '../static/upload/avatar/' + D + '.png');
                 let pathImg = './static/upload/avatar/' + D + '.png';//返前台路径目录

@@ -63,7 +63,7 @@
                     color="#0bbd87"
                     placement="top">
                     <ul>
-                      <li>购买域名：<a href="www.yangziming.ltd" target="_blank">www.yangziming.ltd</a><i class="el-icon-check"></i></li>
+                      <li>购买域名：<a href="http://www.yangziming.ltd" target="_blank">www.yangziming.ltd</a><i class="el-icon-check"></i></li>
                       <li>购买腾讯云服务器<i class="el-icon-check"></i></li>
                       <li>服务器部署Node+Vue+MongoDB博客系统<i class="el-icon-check"></i></li>
                       <li>绑定域名，以域名访问博客</li>
