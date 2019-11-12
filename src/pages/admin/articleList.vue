@@ -2,66 +2,67 @@
   <div>
     <center-header></center-header>
     <div id="content">
-      <h1 class="title">
-        <span>{{type=='article'?'文章列表':'Demo列表'}}</span>
-      </h1>
-      <div class="tab-box">
-        <el-button-group>
-          <el-button :type="type=='article'?'primary':'info'" @click="toggle"><i class="iconfont icon-liebiao"></i> Article</el-button>
-          <el-button :type="type=='demo'?'primary':'info'" @click="toggle"><i class="iconfont icon-play1"></i> Demo</el-button>
-        </el-button-group>
-        <el-button v-if="type=='article'" @click="handleAdd()" class="btn-add">新增+</el-button>
-        <el-button v-if="type=='demo'" @click="handleAdd2()" class="btn-add" v-show="false">新增+</el-button>
-      </div>
-      <div v-if="type=='article'">
-        <el-table
-          :data="articleList"
-          style="width: 100%"
-          header-align='right'
-          border
-          stripe>
-          <el-table-column label="标题" width="">
-              <template slot-scope="scope">
-                <span>{{ scope.row.title }}</span>
-              </template>
-          </el-table-column>
-          <el-table-column label="日期" width="200">
-              <template slot-scope="scope">
-                <i class="el-icon-time"></i>
-                <span>{{ scope.row.date }}</span>
-              </template>
-          </el-table-column>
-          <el-table-column label="摘要" width="">
-              <template slot-scope="scope">
-                <span>{{ scope.row.gist.slice(0,30) }}</span>
-              </template>
-          </el-table-column>
-          <el-table-column label="分类" width="250">
-              <template slot-scope="scope">
-                <span v-if="scope.row.category.length === 0">未分类</span>
-                <el-tag v-else class="tag_margin" type="primary" v-for="tag in scope.row.category" :key="tag.id">{{ tag }}</el-tag>
-              </template>
-          </el-table-column>
-          <el-table-column label="操作" width="230">
-              <template slot-scope="scope">
-                <el-button
-                  size="mini"
-                  type="primary"
-                  @click="handleLook(scope.$index, scope.row)">查看</el-button>
-                <el-button
-                  size="mini"
-                  type="success"
-                  @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
-                <el-button
-                  size="mini"
-                  type="danger"
-                  @click="handleDelete(scope.$index, scope.row)">删除</el-button>
-              </template>
-          </el-table-column>
-        </el-table>
-      </div>
+      <el-col :xs="0" :sm="24" :md="24" :lg="24" :xl="24">
+        <h1 class="title">
+          <span>{{type=='article'?'文章列表':'Demo列表'}}</span>
+        </h1>
+        <div class="tab-box">
+          <el-button-group>
+            <el-button :type="type=='article'?'primary':'info'" @click="toggle"><i class="iconfont icon-liebiao"></i> 文章</el-button>
+            <el-button :type="type=='demo'?'primary':'info'" @click="toggle"><i class="iconfont icon-play1"></i> Demo</el-button>
+          </el-button-group>
+          <el-button v-if="type=='article'" @click="handleAdd()" class="btn-add">新增+</el-button>
+          <el-button v-if="type=='demo'" @click="handleAdd2()" class="btn-add" v-show="false">新增+</el-button>
+        </div>
+        <div v-if="type=='article'">
+          <el-table
+            :data="articleList"
+            style="width: 100%"
+            header-align='right'
+            border
+            stripe>
+            <el-table-column label="标题" width="">
+                <template slot-scope="scope">
+                  <span>{{ scope.row.title }}</span>
+                </template>
+            </el-table-column>
+            <el-table-column label="日期" width="200">
+                <template slot-scope="scope">
+                  <i class="el-icon-time"></i>
+                  <span>{{ scope.row.date }}</span>
+                </template>
+            </el-table-column>
+            <el-table-column label="摘要" width="">
+                <template slot-scope="scope">
+                  <span>{{ scope.row.gist.slice(0,30) }}</span>
+                </template>
+            </el-table-column>
+            <el-table-column label="分类" width="250">
+                <template slot-scope="scope">
+                  <span v-if="scope.row.category.length === 0">未分类</span>
+                  <el-tag v-else class="tag_margin" type="primary" v-for="tag in scope.row.category" :key="tag.id">{{ tag }}</el-tag>
+                </template>
+            </el-table-column>
+            <el-table-column label="操作" width="230">
+                <template slot-scope="scope">
+                  <el-button
+                    size="mini"
+                    type="primary"
+                    @click="handleLook(scope.$index, scope.row)">查看</el-button>
+                  <el-button
+                    size="mini"
+                    type="success"
+                    @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
+                  <el-button
+                    size="mini"
+                    type="danger"
+                    @click="handleDelete(scope.$index, scope.row)">删除</el-button>
+                </template>
+            </el-table-column>
+          </el-table>
+        </div>
 
-      <div v-if="type=='demo'">
+        <div v-if="type=='demo'">
           <el-alert style="margin:0 auto 10px;width: 300px;"
             title="功能未完善，暂不开放"
             type="warning"
@@ -73,72 +74,83 @@
             header-align='right'
             border
             stripe>
-          <el-table-column
-              label="标题"
-              width="200">
-              <template slot-scope="scope">
-                <span>{{ scope.row.title }}</span>
-              </template>
-          </el-table-column>
-          <el-table-column
-              label="日期"
-              width="200">
-              <template slot-scope="scope">
-                <i class="el-icon-time"></i>
-                <span>{{ scope.row.date }}</span>
-              </template>
-          </el-table-column>
-          <el-table-column
-              label="file"
-              width="200">
-              <template slot-scope="scope">
-                  <span>{{ scope.row.file }}</span>
-              </template>
-          </el-table-column>
-          <el-table-column
-              label="图片"
-              width="200">
-              <template slot-scope="scope">
-                  <span>{{ scope.row.pic }}</span>
-              </template>
-          </el-table-column>
-          <el-table-column
-              label="摘要"
-              width="200">
-              <template slot-scope="scope">
-                <span>{{ scope.row.gist.slice(0,30) }}</span>
-              </template>
-          </el-table-column>
-          <el-table-column label="操作">
-              <template slot-scope="scope">
-                <el-button
-                  size="mini"
-                  type="primary"
-                  @click="handleLook2(scope.$index, scope.row)">查看</el-button>
-                <el-button
-                  size="mini"
-                  type="success"
-                  @click="handleEdit2(scope.$index, scope.row)">编辑</el-button>
-                <el-button
-                  size="mini"
-                  type="danger"
-                  @click="handleDelete2(scope.$index, scope.row)">删除</el-button>
-              </template>
-          </el-table-column>
-        </el-table>
-      </div>
+            <el-table-column
+                label="标题"
+                width="200">
+                <template slot-scope="scope">
+                  <span>{{ scope.row.title }}</span>
+                </template>
+            </el-table-column>
+            <el-table-column
+                label="日期"
+                width="200">
+                <template slot-scope="scope">
+                  <i class="el-icon-time"></i>
+                  <span>{{ scope.row.date }}</span>
+                </template>
+            </el-table-column>
+            <el-table-column
+                label="file"
+                width="200">
+                <template slot-scope="scope">
+                    <span>{{ scope.row.file }}</span>
+                </template>
+            </el-table-column>
+            <el-table-column
+                label="图片"
+                width="200">
+                <template slot-scope="scope">
+                    <span>{{ scope.row.pic }}</span>
+                </template>
+            </el-table-column>
+            <el-table-column
+                label="摘要"
+                width="200">
+                <template slot-scope="scope">
+                  <span>{{ scope.row.gist.slice(0,30) }}</span>
+                </template>
+            </el-table-column>
+            <el-table-column label="操作">
+                <template slot-scope="scope">
+                  <el-button
+                    size="mini"
+                    type="primary"
+                    @click="handleLook2(scope.$index, scope.row)">查看</el-button>
+                  <el-button
+                    size="mini"
+                    type="success"
+                    @click="handleEdit2(scope.$index, scope.row)">编辑</el-button>
+                  <el-button
+                    size="mini"
+                    type="danger"
+                    @click="handleDelete2(scope.$index, scope.row)">删除</el-button>
+                </template>
+            </el-table-column>
+          </el-table>
+        </div>
+      </el-col>
     </div>
+    <el-col :xs="24" :sm="0" :md="0" :lg="0" :xl="0">
+      <myInfo></myInfo>
+    </el-col>
+    <el-col :span="24">
+      <common-footer></common-footer>
+    </el-col>
   </div>
 </template>
 
 <script>
 import CenterHeader from "../../components/centerHeader";
+import CommonFooter from "../../components/commonFooter";
+import myInfo from "../visiter/index";
 import { checkAdmin,webUrl } from "~/js/public.js";
 
 export default {
   mixins: [checkAdmin],
   components: {
     CenterHeader,
+    CommonFooter,
+    myInfo,
   },
   data() {
     return {
@@ -166,6 +178,7 @@ export default {
     });
   },
   created(){
+    this.$store.commit("changeIndex", '');
     this.name = localStorage.getItem("user_name");
     this.token = localStorage.getItem("token");
   },
@@ -289,7 +302,8 @@ export default {
 #content {
   width: 1300px;
   margin: 0 auto;
-  > .title {
+  overflow: hidden;
+  .title {
     margin: 30px 0;
     text-align: center;
   }

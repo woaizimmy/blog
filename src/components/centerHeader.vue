@@ -2,7 +2,7 @@
   <header>
     <div class="wrapper">
       <el-row>
-        <el-col :xs="20" :sm="4" :md="4" :lg="4" :xl="4"><div class="logo">文章管理</div></el-col>
+        <el-col :xs="20" :sm="4" :md="4" :lg="4" :xl="4"><div class="logo">Bright Land</div></el-col>
         <el-col :xs="0" :sm="20" :md="20" :lg="20" :xl="20">
           <el-menu
             :default-active="activeIndex"
@@ -22,6 +22,28 @@
             <el-menu-item index="7" v-if="isSignIn===0"><router-link :class="[activeIndex==7?'meBtnOn':'meBtnOff']" to="/sign">登录</router-link></el-menu-item>
             <li v-else @click="signOut" :class="[activeIndex==7?'meBtnOn':'meBtnOff']" class="signOut">退出登录</li>
           </el-menu>
+        </el-col><el-col :xs="4" :sm="0" :md="0" :lg="0" :xl="0" class="">
+          <div class="nav-mob">
+            <!-- <div v-if="(isSignIn===1||isSignIn===2)&&navMobile" @click="navToggle" class="avatar"></div>
+            <img v-if="(isSignIn===1||isSignIn===2)&&navMobile" @click="navToggle" class="avatar" :src="avatar" alt=""> -->
+            <i class="iconfont icon-caidan" @click="navToggle"></i>
+            <transition  name="slide-fade">
+              <div v-if="navMobile" class="content">
+                <ul  @click='slideUp'>
+                  <li><router-link to="/"><i class="iconfont icon-zhuye f13"></i>主页</router-link></li>
+                  <li><router-link to="/archives"><i class="iconfont icon-git-commit f16"></i>归档</router-link></li>
+                  <!-- <li><router-link to="/categories">分类</router-link></li> -->
+                  <!-- <li><router-link to="/collections">收藏</router-link></li> -->
+                  <!-- <li><router-link to="/demo">演示</router-link></li> -->
+                  <li><router-link to="/about"><i class="iconfont icon-liebiao f15"></i>关于</router-link></li>
+                  <li>
+                    <router-link v-if="isSignIn===1||isSignIn===2" to="/visiter">{{nickName}}</router-link>
+                    <router-link v-else to="/sign">登录</router-link>
+                  </li>
+                </ul>
+              </div>
+            </transition >
+          </div>
         </el-col>
       </el-row>
     </div>

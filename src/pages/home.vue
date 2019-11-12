@@ -7,14 +7,14 @@
                 <list_home :items="items"></list_home>
               </div>
             </el-col>
-            <el-col :xs="0" :sm="4" :md="6" :lg="6" :xl="6">
+            <el-col :xs="24" :sm="4" :md="6" :lg="6" :xl="6">
               <div class="aside">
 
                 <el-card class="card">
                   <p class="title">关于我</p>
                   <img class="pic" src="../../static/img/avatar.png" alt="">
                   <div class="row">
-                    <p>一只前端攻城狮</p>
+                    <p></p>
                     <div class="icons">
                       <a href="https://github.com/woaizimmy" target="_blank"><i class="iconfont icon-github"></i></a>
                       <a href="https://www.zhihu.com/people/yang-zi-ming-16-90/activities" target="_blank"><i class="iconfont icon-zhihu"></i></a>
@@ -66,7 +66,7 @@ export default {
 }
 .aside{
   .card{
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     .title{
       padding: 10px;
       font-weight: 600;

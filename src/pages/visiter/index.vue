@@ -1,6 +1,12 @@
 <template>
     <div class="page">
       <div class="wrapper">
+        <el-alert
+          title="文章管理请到PC端"
+          type="error"
+          effect="dark"
+          :closable="false">
+        </el-alert>
         <div class="content">
           <el-row class="row">
             <el-col :xs="4" :sm="6" :md="6" :lg="6" :xl="6">
@@ -19,13 +25,13 @@
                 <img :src="avatar!='null'?avatar:imgDefault" alt="" class="avatar">
               </label>
               <input @change="upLoad" id="upLoad" type="file">
-              <p class="tips">tips:请上传2M以内JPG/PNG格式的图片，比例最好1:1</p>
+              <p class="tips">请上传2M以内1:1比例的JPG/PNG</p>
             </el-col>
           </el-row>
           <el-row class="row ">
             <el-col class="bar" :offset="6" :xs="18" :sm="18" :md="18" :lg="18" :xl="18">
-              <el-button @click="save" type="primary">Save</el-button>
-              <el-button @click="signOut">Sign Out</el-button>
+              <el-button @click="save" type="primary">保存</el-button>
+              <el-button @click="signOut">退出登录</el-button>
             </el-col>
           </el-row>
         </div>
@@ -49,6 +55,7 @@ export default {
     };
   },
   created() {
+    console.log('localStorage',localStorage);
     this.nickName = localStorage.getItem("nickName");
     this.avatar = localStorage.getItem("avatar");
     this.name = localStorage.getItem("user_name");
@@ -89,6 +96,10 @@ export default {
       }
     },
     save: function() {
+      console.log('name',this.name);
+      console.log('token',this.token);
+      console.log('nickName',this.nickName);
+      console.log('avatar',this.avatar);
       //保存
       let that = this;
       that.$axios
@@ -158,7 +169,6 @@ export default {
       display: block;
       margin: 0 auto;
       background: #eee;
-      border-radius: 50%;
       cursor: pointer;
     }
     .tips {
@@ -193,7 +203,6 @@ export default {
         display: block;
         margin: 0 auto;
         background: #eee;
-        border-radius: 50%;
         cursor: pointer;
       }
       .tips {

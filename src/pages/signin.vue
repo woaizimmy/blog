@@ -15,7 +15,7 @@
     </div>
     <div v-else-if="status==3" class="loading">
       <div v-if="!txtSignIn" class="outside"></div>
-      <p v-else class="txt">Sign In</p>
+      <p v-else class="txt">登录成功</p>
 		</div>
   </div>
 </template>
@@ -128,8 +128,8 @@ export default {
                 } else if (type == 2) {
                   this.$router.push({ name: "visiter" }); //游客
                 }
-              }, 1500);
-            }, 3000);
+              }, 1000);
+            }, 2000);
           } else {
             that.$message({
               type: "error",

@@ -114,7 +114,11 @@ router.post('/api/admin/updateUser', (req, res) => {
             } else {//需要更新图片
                 const fs = require('fs');
                 let D = Date.now();
-                let saveImg = path.join(__dirname, '../static/upload/avatar/' + D + '.png');//api.js的上级的static下
+                //api.js的上级的static下
+                // 部署版
+                // let saveImg = path.join(__dirname, '../static/upload/avatar/' + D + '.png');
+                // 本地开发版
+                let saveImg = path.join(__dirname, '../static/upload/avatar/' + D + '.png');
                 let pathImg = './static/upload/avatar/' + D + '.png';//返前台路径目录
                 let base64 = req.body.avatar.replace(/^data:image\/\w+;base64,/, "");
                 let dataBuffer = new Buffer(base64, 'base64'); //把base64码转成buffer对象，

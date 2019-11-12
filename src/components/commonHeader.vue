@@ -2,7 +2,7 @@
   <header>
     <div class="wrapper">
       <el-row>
-        <el-col :xs="20" :sm="4" :md="4" :lg="4" :xl="4"><div class="logo">日月站</div></el-col>
+        <el-col :xs="20" :sm="4" :md="4" :lg="4" :xl="4"><div class="logo">Bright Land</div></el-col>
         <el-col :xs="0" :sm="20" :md="20" :lg="20" :xl="20">
           <el-menu
             :default-active="activeIndex"
@@ -31,12 +31,12 @@
             <transition  name="slide-fade">
               <div v-if="navMobile" class="content">
                 <ul  @click='slideUp'>
-                  <li><router-link to="/">主页</router-link></li>
-                  <li><router-link to="/archives">归档</router-link></li>
+                  <li><router-link to="/"><i class="iconfont icon-zhuye f13"></i>主页</router-link></li>
+                  <li><router-link to="/archives"><i class="iconfont icon-git-commit f16"></i>归档</router-link></li>
                   <!-- <li><router-link to="/categories">分类</router-link></li> -->
                   <!-- <li><router-link to="/collections">收藏</router-link></li> -->
                   <!-- <li><router-link to="/demo">演示</router-link></li> -->
-                  <li><router-link to="/about">关于</router-link></li>
+                  <li><router-link to="/about"><i class="iconfont icon-liebiao f15"></i>关于</router-link></li>
                   <li>
                     <router-link v-if="isSignIn===1||isSignIn===2" to="/visiter">{{nickName}}</router-link>
                     <router-link v-else to="/sign">登录</router-link>
@@ -111,7 +111,7 @@ header {
         padding: 0 20px;
         text-align: center;
         > .iconfont {
-          vertical-align: top;
+          vertical-align: middle;
           margin: 0 5px 0 0;
           font-size: 20px;
         }
@@ -128,7 +128,7 @@ header {
     line-height: 40px;
     z-index: 9999;
     i {
-      font-size: 24px;
+      margin-right: 5px;
     }
     .avatar {
       width: 24px;
