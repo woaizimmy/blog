@@ -61,7 +61,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.main{
+.main,.aside{
   padding: 0 15px;
 }
 .aside{
