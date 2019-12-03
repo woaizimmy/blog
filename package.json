@@ -1,5 +1,5 @@
 {
-  "name": "brightLand",
+  "name": "bright-land",
   "version": "1.0.0",
   "description": "A Vue.js project",
   "author": "yangziming",
@@ -11,7 +11,20 @@
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "src/**/*.js": [
+      "eslint --fix --ext .js",
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   },
   "dependencies": {
     "async-validator": "^1.8.2",
@@ -19,9 +32,12 @@
     "cors": "^2.8.4",
     "deepmerge": "^2.0.1",
     "element-ui": "^2.0.10",
+    "eslint-config-ali": "^8.0.2",
     "express": "^4.16.2",
     "express-session": "^1.15.6",
+    "husky": "^3.1.0",
     "jsonwebtoken": "^8.2.0",
+    "lint-staged": "^9.5.0",
     "mavon-editor": "^2.4.16",
     "mongoose": "^5.0.6",
     "vue": "^2.5.2",
